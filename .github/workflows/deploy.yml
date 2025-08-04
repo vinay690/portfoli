@@ -27,6 +27,6 @@ jobs:
 
       - name: Run new container
         run: |
-          docker run -d --name portfoli -p 80:5000 vinayk69/portfoli:latest
+          docker run -d --name portfoli -p 5000:5000 vinayk69/portfoli:latest
 
       
