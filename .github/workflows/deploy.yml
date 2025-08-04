@@ -19,14 +19,17 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             docker pull vinayk69/portfoli:latest
+            docker stop portfoli || true
+            docker rm portfoli || true
+            docker run -d --name portfoli -p 5000:5000 vinayk69/portfoli:latest
 
-      - name: Stop and remove existing container
-        run: |
-          docker stop portfoli || true
-          docker rm portfoli || true
+      # - name: Stop and remove existing container
+      #   run: |
+      #     docker stop portfoli || true
+      #     docker rm portfoli || true
 
-      - name: Run new container
-        run: |
-          docker run -d --name portfoli -p 5000:5000 vinayk69/portfoli:latest
+      # - name: Run new container
+      #   run: |
+      #     docker run -d --name portfoli -p 5000:5000 vinayk69/portfoli:latest
 
       
